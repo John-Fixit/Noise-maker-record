@@ -28,7 +28,7 @@
                 <div class="container-fluid pt-1">
                     <h3 class="text-info text-center">List of Noise Maker <span style="font-size: 14vh;">✍</span></h3>
 
-                    <table class="table">
+                    <table class="table table-striped">
                         <thead class="bg-secondary text-light">
                             <th>S/N</th>
                             <th>Name</th>
@@ -36,13 +36,37 @@
                             <th>x Times</th>
                             <th>Actions</th>
                         </thead>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        <% allNoiseMaker.map((students, index)=>{ %>
+                            <tr>
+                                <td>
+                                    <%= index + 1 %>
+                                </td>
+                                <td>
+                                    <%= students.Name %>
+                                </td>
+                                <td>
+                                    <%# students.Image %>
+                                </td>
+                                <td>
+                                    <%= students.times %>
+                                </td>
+                                <td>
+                                    <form action="/Add" method="POST">
+                                        <input type="hidden" name="myIndex" value="<%= index %>"  id="">
+                                        <button class="btn btn-danger" type="submit">+</button>
+                                    </form>
+                                    <form action="/Minus" method="POST">
+                                        <input type="hidden" name="myIndex" value=<%= index %>  id="">
+                                        <button class="btn btn-success" type="submit">-</button>
+                                    </form>
+                                    <form action="/Clr" method="POST">
+                                        <input type="hidden" name="myIndex" value=<%= index %>  id="">
+                                        <button class="btn btn-secondary" type="submit">x</button>
+                                    </form>
+                                </td>
+                            </tr>
+
+                            <% }) %>
 
                     </table>
                     <form action="/submit" method="POST">

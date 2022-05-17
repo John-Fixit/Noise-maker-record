@@ -30,7 +30,8 @@
                     <div class="form-group">
                         <form action="/sub" method="POST">
                             <input type="text" placeholder="Noise maker Name" name="Name" class="form-control" id="">
-                            <input type="file" class="text-primary mt-3" name="" id="">
+                            <input type="hidden" name="times" value=<%= times %> id="">
+                            <input type="file" class="text-primary mt-3" name="myImg" id="">
                             <button class="btn btn-primary w-100 mt-4" type="submit">Summit</button>
                         </form>
                     </div>
